@@ -1,34 +1,31 @@
-/* Reset margins and paddings for body and html */
-
 :root {
     --highlight-color: yellow; /* Store the color */
     --default-accent-color: #007bff;
 }
 
-
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* Ensure all content fits within the viewport */
+    height: 100%;
 }
 
 * {
-    box-sizing: border-box; /* Includes padding and border in dimensions */
+    box-sizing: border-box;
 }
 
 #container {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Full height of the viewport */
-    max-width: 600px; /* Optional: To limit width */
-    margin: 0 auto; /* Center horizontally */
+    height: 95vh;
+    max-width: 600px;
+    margin: 0 auto;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevents overflow from children */
+    overflow: hidden;
 }
 
 #messageContainer {
-    flex: 1; /* Takes up the remaining space */
-    overflow-y: auto; /* Enables vertical scrolling for overflowing messages */
+    flex: 1;
+    overflow-y: auto;
     padding: 10px;
     background-color: #f9f9f9;
 }
@@ -41,7 +38,7 @@ html, body {
 }
 
 #message-input {
-    flex: 1; /* Input fills the remaining horizontal space */
+    flex: 1;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -59,7 +56,7 @@ html, body {
 }
 
 #message-form button:hover {
-    background-color: #0056b3; /* Slightly darker blue on hover */
+    background-color: #0056b3;
 }
 
 .message {
@@ -68,22 +65,27 @@ html, body {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     background-color: #f1f1f1;
-    transition: background-color 1s ease; /* CSS transition for fading */
+    transition: background-color 1s ease; /* fade */
 }
 
 .highlight {
-    background-color: var(--default-accent-color); /* Highlight color */
+    background-color: var(--default-accent-color);
 }
 
 .sender {
-    font-weight: bold; /* Make the sender name bold */
-    margin-right: 10px; /* Add space between the sender name and the message */
-    color: #007bff; /* Optional: Highlight the sender name */
-    align-self: flex-start; /* Ensure the sender aligns to the top */
+    font-weight: bold;
+    margin-right: 10px;
+    color: #007bff;
+    align-self: flex-start;
 }
 
 .message-text {
-    flex: 1; /* Allow the message text to take up the remaining space */
-    color: #333; /* Optional: Set a readable text color */
-    word-wrap: break-word; /* Wrap text if it's too long */
+    flex: 1;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.timeStamp {
+    font-size: 1em;
+    padding-right: 0.2em;
 }

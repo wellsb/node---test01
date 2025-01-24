@@ -6,9 +6,11 @@ const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
 
+const BASE_URL = "http://192.168.0.170";
+
 // Enable CORS for the Express server
 app.use(cors({
-  origin: 'http://192.168.0.170', // Client-side origin (update as needed)
+  origin: BASE_URL, // Client-side origin
   methods: ['GET', 'POST'], // Allowed HTTP methods
   credentials: true, // Enable cookies/auth headers if needed
 }));
@@ -16,24 +18,23 @@ app.use(cors({
 // Enable CORS for the Socket.IO server
 const io = socketio(server, {
   cors: {
-    origin: 'http://192.168.0.170', // Client-side origin (update as needed)
+    origin: BASE_URL, // Client-side origin (update as needed)
     methods: ['GET', 'POST'], // Allowed methods
     credentials: true, // Optional - for credentials
   },
 });
 
 io.on('connection', (socket) => {
-  console.log('A user connected');
+  console.log(`conn: ${socket.id.slice(-5)}`);
 
-  socket.on('chat message', (msg) => {
-    console.log(`Message from ${socket.id}: ${msg}`); // Include sender's socket ID
-    //io.emit('chat message', msg); // Broadcast to all connected clients
-    //json
-    io.emit('chat message', { id: socket.id, message: msg });
+  socket.on('aMessage', (msg) => {
+    console.log(`mess: ${socket.id.slice(-5)}: ${msg}`); // Include sender's socket ID
+    // Broadcast to all connected clients
+    io.emit('aMessage', { id: socket.id, message: msg });
   });
 
   socket.on('disconnect', () => {
-    console.log('A user disconnected');
+    console.log(`disc: ${socket.id.slice(-5)}`);
   });
 });
 

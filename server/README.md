@@ -3,9 +3,10 @@
     npm install
 
 installed;
-    express
-    socket.io
-    cors
+- express
+- socket.io
+- cors
 
 run;
-node index.js
+
+    node index.js

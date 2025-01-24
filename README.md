@@ -4,5 +4,4 @@
 
 A simple proof of concept websocket server and simple browser client
 
-node server
-pure javascript browser side
+node server, pure javascript browser side
